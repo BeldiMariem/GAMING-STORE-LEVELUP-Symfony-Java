@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zxx"> <!--<![endif]-->
+{% block headback %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Bingo One page parallax responsive HTML Template ">
+
+        <meta name="author" content="Themefisher.com">
+
+        <title>LevelUP</title>
+
+        <!-- Mobile Specific Meta
+          ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Favicon -->
+        <link href="{{asset('img/favicon.png')}}">
+        <link rel="stylesheet" href="{{asset('plugins/themefisher-font.v-2/style.css')}}"/>
+        <!-- bootstrap.min css -->
+        <link  href="{{asset('plugins/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <!-- Slick Carousel -->
+        <link rel="stylesheet" href="{{asset('plugins/slick-carousel/slick/slick.css')}}">
+        <link rel="stylesheet" href="{{asset('plugins/slick-carousel/slick/slick-theme.css')}}">
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+
+
+    </head>
+{% endblock  %}
+
+
+<body id="body">
+
+<!--
+ Start Preloader
+ ==================================== -->
+
+<!--
+End Preloader
+==================================== -->
+
+{%  block nav %}
+{% set i=0 %}
+{% set nbr=0 %}
+{% set liv=0 %}
+{% set Total=0 %}
+{% for pan in panierElements | reverse %}
+    {% set i=i+ (pan.quantite * pan.id.prix) %}
+    {% set nbr= nbr+ 1 %}
+{% endfor %}
+{% if ( i <= 100) and (nbr != 0) %}
+    {% set liv=10 %}
+    {% set Total=i+liv %}
+{% else %}
+    {% set liv=0 %}
+    {% set Total=liv+i %}
+{% endif %}
+
+
+
+<!--
+Fixed Navigation
+==================================== -->
+<section class="header  navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="logo"><b>LEVEL<span>UP</span></b></a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+
+
+                            {% if is_granted('ROLE_CLIENT')  %}
+
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                                </li>
+                            {% endif %}
+
+                            {% if is_granted('ROLE_CLIENT')  %}
+
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_inscription') }}"> S'inscrire </a>
+                                </li>
+                            {% endif %}
+
+
+                            {% if is_granted('ROLE_CLIENT')  %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{path('app_produit_index_front')}}" class="sr-only">Produits</a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_CLIENT')  %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{path('app_post_indexFront')}}" class="sr-only">Forum</a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_CLIENT') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_accountClient') }}"> Compte</a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_CLIENT') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                                </li>
+                            {% endif %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_conde_index') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> Commandes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_produit_Top') }}"><i class="fa fa-level-up" aria-hidden="true"></i> Top</a>
+                            </li>
+
+                            {% block  header %}
+                                <li class="nav-item dropdown" style="margin-top : -30px; margin-bottom:30px">
+                                    <div class="site-branding-area">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="shopping-item">
+                                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart - <span class="cart-amunt">{{Total}} DN</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{nbr}}</span></a>
+                                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            {% for pan in panierElements %}
+                                                                <a class="dropdown-item" href="#">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <h5 id="prTitle">{{pan.id.nom}}</h5>
+                                                                            <p class="card-text">Prix : {{pan.id.prix}} DN</p> <p class="card-text">Quantite : {{pan.quantite}}</p>
+                                                                            <form method="post" action="{{ path('app_panier_elem_delete', {'idElem': pan.idElem}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ pan.idElem) }}">
+                                                                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            {% endfor %}
+                                                            <a class="dropdown-item" href="{{ path('app_panier_elements') }}">View cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endblock  %}
+
+
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+Welcome Slider
+==================================== -->
+{% block content %}
+    <section class="hero-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center mb-4 mb-lg-0">
+                    <div class="video-player">
+                        <img class="img-fluid rounded" src="images/panier.webp" alt="">
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="block">
+                        <h2> Panier</h2>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a data-scroll href="#services" class="btn btn-main">Explore Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock  %}
+{% endblock  %}
+
+
+<!-- end Footer Area
+========================================== -->
+
+
+
+<!--
+Essential Scripts
+=====================================-->
+
+<!-- Main jQuery -->
+<script src="plugins/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Owl Carousel -->
+<script src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+
+<!-- Custom js -->
+<script src="js/script.js"></script>
+
+</body>
+
+
+</html>

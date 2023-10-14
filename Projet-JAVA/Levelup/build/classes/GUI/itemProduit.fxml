@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onMousePressed="#click" prefHeight="450.0" prefWidth="500.0" stylesheets="@../../../../styleProduit.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ItemController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" stylesheets="@../styles/styleUser.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="51.0" prefWidth="480.0">
+               <children>
+                  <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="494.0" text="ProductName" textFill="#17a589" wrapText="true">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <ImageView fx:id="imgItemProduit" fitHeight="218.0" fitWidth="378.0" pickOnBounds="true" preserveRatio="true" styleClass="fruit-item" />
+            <Label fx:id="IdItem" text="Id" visible="false" />
+            <HBox prefHeight="48.0" prefWidth="450.0">
+               <children>
+                  <Label prefHeight="75.0" prefWidth="65.0" />
+                  <Label fx:id="priceLable" prefHeight="35.0" prefWidth="204.0" styleClass="prix" stylesheets="@../styles/style.css" text="      Prix" textFill="#0000006c">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceLable1" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="196.0" text="Prix Final">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="126.0" prefWidth="500.0">
+               <children>
+                  <Label fx:id="description" alignment="CENTER" prefHeight="69.0" prefWidth="531.0" text="     Description">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <styleClass>
+            <String fx:value="fruit-item" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

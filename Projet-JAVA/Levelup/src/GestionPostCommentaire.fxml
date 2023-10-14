@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1428.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionPostCommentaireController">
+   <children>
+      <VBox layoutX="337.0" layoutY="54.0" prefHeight="539.0" prefWidth="266.0">
+         <effect>
+            <InnerShadow color="#e6f573" />
+         </effect>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IMG/icons8-yellow-file-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="273.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+      <Text fill="#91cfb6" layoutX="707.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GESTION FORUM" wrappingWidth="331.6708984375">
+         <font>
+            <Font name="Bodoni MT Black" size="38.0" />
+         </font>
+      </Text>
+      <Button fx:id="ajouterpub" layoutX="639.0" layoutY="256.0" mnemonicParsing="false" onAction="#addp" prefHeight="108.0" prefWidth="467.0" style="-fx-background-color: grey;" text="AJOUTER PUBLICATION">
+         <effect>
+            <ColorAdjust brightness="0.26" contrast="0.07" saturation="-0.28">
+               <input>
+                  <ColorAdjust />
+               </input>
+            </ColorAdjust>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS Bold" size="19.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IMG/icons8-comment-60.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="afficherPub" layoutX="634.0" layoutY="453.0" mnemonicParsing="false" onAction="#showp" prefHeight="108.0" prefWidth="477.0" style="-fx-background-color: grey;" text="AFFICHER LES PUBLICATIONS">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="0.18" contrast="-0.07" hue="0.86" saturation="-0.32" />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="76.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IMG/icons8-post-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <VBox alignment="TOP_CENTER" layoutY="-82.0" prefHeight="872.0" prefWidth="284.0" style="-fx-background-color: #17A589;">
+         <padding>
+            <Insets top="100.0" />
+         </padding>
+         <children>
+            <Circle fx:id="myCircle1" fill="DODGERBLUE" radius="35.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProfil" prefHeight="32.0" prefWidth="256.0" style="-fx-background-color: #17A589;" stylesheets="@GUI/styleg.css">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProfil" prefHeight="32.0" prefWidth="256.0" style="-fx-background-color: #17A589;" stylesheets="@GUI/styleg.css">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="42.0" prefWidth="296.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="   Dashboard">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/dashboard-png-icon-18.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProfil" prefHeight="42.0" prefWidth="296.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="   Mon Profile">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/u.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToPassword" prefHeight="42.0" prefWidth="294.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Mot de passe">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/4105941-lock-login-password-security-sign-in-sign-out_113932.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="   Produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/product.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToTop" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Top Produits">
+               <graphic>
+                  <ImageView fx:id="top" fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/forum.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToPanier" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="   Panier">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToCommande" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Mes commandes">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/commande.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToUsers" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion utilisateur">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Gusers.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToGestProd" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion produit">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/product.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToCategorie" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion categorie">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/categorie.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToReclamation" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Reclamation">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/reclamation.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToStock" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion stock">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/stock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToFacture" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion Facture">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/facture.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToForum" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion Forum">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/forum.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToCommandesAdmin" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Gestion Commandes">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/list.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToZoneLivreur" prefHeight="42.0" prefWidth="351.0" style="-fx-background-color: #76D7C4;" stylesheets="@GUI/styleg.css" text="  Zone livreur">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/list.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProfil" prefHeight="32.0" prefWidth="256.0" style="-fx-background-color: #17A589;" stylesheets="@GUI/styleg.css">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" cancelButton="true" graphicTextGap="0.0" mnemonicParsing="false" onAction="#switchToProfil" prefHeight="32.0" prefWidth="256.0" style="-fx-background-color: #17A589;" stylesheets="@GUI/styleg.css">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#Deconnexion" prefHeight="42.0" prefWidth="284.0" style="-fx-background-color: #17A589;" stylesheets="@GUI/styleg.css" text="Deconnexion">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logout.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
